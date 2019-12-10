@@ -1,0 +1,59 @@
+version: 2
+jobs:
+  setup:
+    docker:
+      - image: circleci/node:12.13.1
+    steps:
+      - checkout
+      - run:
+          name: Install
+          command: yarn install --frozen-lockfile
+      - store_artifacts:
+        path: node_modules
+        destination: node_modules
+  build:
+    docker:
+      - image: circleci/node:12.13.1
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: yarn build
+      - store_artifacts:
+        path: dist
+        destination: dist
+  test:
+    docker:
+      - image: circleci/node:12.13.1
+    steps:
+      - checkout
+      - run:
+          name: Deploying to GitHub Pages
+          command: yarn lint
+  deploy:
+    docker:
+      - image: circleci/node:12.13.1
+    steps:
+      - checkout
+      - run:
+          name: Building
+          command: |
+            echo "Woot"
+            ls dist
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - setup:
+      - build:
+          requires:
+            - setup
+      - test:
+          requires:
+            - setup
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
