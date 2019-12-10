@@ -10,9 +10,6 @@ jobs:
       - run:
           name: Install
           command: yarn install --frozen-lockfile
-      - store_artifacts:
-          path: node_modules
-          destination: node_modules
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
