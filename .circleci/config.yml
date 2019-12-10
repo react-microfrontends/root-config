@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Install
           command: yarn install --frozen-lockfile
@@ -14,9 +14,9 @@ jobs:
           path: node_modules
           destination: node_modules
       - save_cache:
-        key: dependency-cache-{{ checksum "yarn.lock" }}
-        paths:
-          - node_modules
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
   build:
     docker:
       - image: circleci/node:12.13.1
