@@ -25,8 +25,8 @@ jobs:
           name: Build
           command: yarn build
       - store_artifacts:
-        path: dist
-        destination: dist
+          path: dist
+          destination: dist
   test:
     docker:
       - image: circleci/node:12.13.1
