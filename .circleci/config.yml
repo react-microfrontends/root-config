@@ -9,8 +9,8 @@ jobs:
           name: Install
           command: yarn install --frozen-lockfile
       - store_artifacts:
-        path: node_modules
-        destination: node_modules
+          path: node_modules
+          destination: node_modules
   build:
     docker:
       - image: circleci/node:12.13.1
