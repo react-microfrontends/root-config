@@ -54,10 +54,9 @@ jobs:
       - run:
           name: Deploy
           command: |
-            echo "Debuggin"
+            echo "Going to correct directory"
             cd /home/circleci/project/
-            pwd
-            ls
+            ls dist
 
             echo "Creating google application credentials json file"
             echo $GOOGLE_APPLICATION_CREDENTIALS_JSON > google-application-credentials.json
@@ -68,7 +67,6 @@ jobs:
             echo "Commit sha is $CIRCLE_SHA1. This will be the directory name under $CIRCLE_PROJECT_REPONAME in Cloud Storage."
 
             echo "Uploading root-config module"
-            ls dist
             mv dist/index.html .
             gsutil cp ./dist/** gs://$BUCKET_NAME/$CIRCLE_PROJECT_REPONAME/$CIRCLE_SHA1
             echo "Updating import map"
