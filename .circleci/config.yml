@@ -35,13 +35,12 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: Deploying to GitHub Pages
+          name: Test and Lint
           command: yarn lint
   deploy:
     docker:
       - image: circleci/node:12.13.1
     steps:
-      - checkout
       - run:
           name: Building
           command: |
