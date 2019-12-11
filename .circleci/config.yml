@@ -55,6 +55,7 @@ jobs:
           name: Deploy
           command: |
             echo "Debuggin"
+            cd /home/circleci/project/
             pwd
             ls
 
