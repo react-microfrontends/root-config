@@ -54,6 +54,10 @@ jobs:
       - run:
           name: Deploy
           command: |
+            echo "Debuggin"
+            pwd
+            ls
+
             echo "Creating google application credentials json file"
             echo $GOOGLE_APPLICATION_CREDENTIALS_JSON > google-application-credentials.json
 
