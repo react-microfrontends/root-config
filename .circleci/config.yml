@@ -24,6 +24,10 @@ jobs:
       - run:
           name: Build
           command: yarn build
+      - save_cache:
+          key: build-output-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - dist
       - store_artifacts:
           path: dist
           destination: dist
@@ -41,6 +45,8 @@ jobs:
     docker:
       - image: circleci/node:12.13.1
     steps:
+      - restore_cache:
+          key: build-output-{{ .Environment.CIRCLE_SHA1 }}
       - run:
           name: Building
           command: |
