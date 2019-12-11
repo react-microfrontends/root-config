@@ -56,7 +56,6 @@ jobs:
             echo $GOOGLE_APPLICATION_CREDENTIALS_JSON > google-application-credentials.json
 
             echo "Authenticating with Google"
-            echo $CF_PUBLIC_URL
             gcloud auth activate-service-account --key-file google-application-credentials.json
 
             echo "Commit sha is $CIRCLE_SHA1. This will be the directory name under $CIRCLE_PROJECT_REPONAME in Cloud Storage."
