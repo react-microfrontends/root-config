@@ -23,7 +23,9 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Build
-          command: yarn build
+          command: |
+            yarn build
+            ls dist
       - save_cache:
           key: build-output-{{ .Environment.CIRCLE_SHA1 }}
           paths:
