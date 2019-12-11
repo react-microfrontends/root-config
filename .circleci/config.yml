@@ -45,7 +45,9 @@ jobs:
           name: Building
           command: |
             echo "Woot"
+            pwd
             ls .
+            echo "Woot 2"
             ls dist
 workflows:
   version: 2
