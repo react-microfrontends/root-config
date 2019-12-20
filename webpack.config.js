@@ -33,5 +33,5 @@ module.exports = env => ({
     }),
     new CleanWebpackPlugin()
   ],
-  externals: ["single-spa", /^@org-name\/.+$/]
+  externals: ["single-spa", /^@react-mf\/.+$/]
 });
