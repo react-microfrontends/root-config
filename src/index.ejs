@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>React Microfrontends</title>
+  <title>Root Config</title>
   <meta name="importmap-type" content="systemjs-importmap" />
   <script type="systemjs-importmap" src="https://storage.googleapis.com/react.microfrontends.app/importmap.json"></script>
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@org-name/root-config": "http://localhost:9000/root-config.js"
+        "@react-mf/root-config": "http://localhost:9000/root-config.js"
       }
     }
   </script>
@@ -23,7 +23,7 @@
 </head>
 <body>
   <script>
-    System.import('@org-name/root-config');
+    System.import('@react-mf/root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
