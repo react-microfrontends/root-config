@@ -7,4 +7,10 @@ registerApplication(
   isActive.navbar
 );
 
+registerApplication(
+  "@react-mf/people",
+  () => System.import("@react-mf/people"),
+  isActive.people
+);
+
 start();
