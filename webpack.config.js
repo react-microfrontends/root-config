@@ -21,7 +21,11 @@ module.exports = env => ({
     ]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    disableHostCheck: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
