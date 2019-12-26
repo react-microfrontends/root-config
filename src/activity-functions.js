@@ -12,3 +12,7 @@ export function navbar(location) {
 export function people(location) {
   return prefix(location, "people");
 }
+
+export function planets(location) {
+  return prefix(location, "planets");
+}
