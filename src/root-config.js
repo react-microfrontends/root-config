@@ -13,4 +13,10 @@ registerApplication(
   isActive.people
 );
 
+registerApplication(
+  "@react-mf/planets",
+  () => System.import("@react-mf/planets"),
+  isActive.planets
+);
+
 start();
