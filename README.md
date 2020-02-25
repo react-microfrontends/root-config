@@ -34,7 +34,7 @@ yarn install
 yarn start --https
 ```
 
-Go to https://localhost:9000/react-mf-root-config.js and verify that you are able to load the file without any SSL problems. To solve SSL problems, see [these options](https://improveandrepeat.com/2016/09/allowing-self-signed-certificates-on-localhost-with-chrome-and-firefox/)
+Go to https://localhost:9000/react-mf-root-config.js and verify that you are able to load the file without any SSL problems. To solve SSL problems, see [these instructions](https://improveandrepeat.com/2016/09/allowing-self-signed-certificates-on-localhost-with-chrome-and-firefox/).
 
 Now, go to https://react.microfrontends.app. In the browser console, run the following:
 
