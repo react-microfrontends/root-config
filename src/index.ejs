@@ -20,6 +20,23 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
+  <script>
+    (function() {
+      const originalInstantiate = System.constructor.prototype.instantiate;
+      System.constructor.prototype.instantiate = function() {
+        return originalInstantiate
+          .apply(this, arguments)
+          .then(function(register) {
+            const originalFn = register[1];
+            register[1] = function(_export) {
+              _export("__esModule", true);
+              return originalFn.apply(this, arguments);
+            };
+            return register;
+          });
+      };
+    })();
+  </script>
 </head>
 <body>
   <script>
