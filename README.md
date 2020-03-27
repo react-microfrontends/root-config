@@ -39,7 +39,7 @@ Go to https://localhost:9000/react-mf-root-config.js and verify that you are abl
 Now, go to https://react.microfrontends.app. In the browser console, run the following:
 
 ```js
-localStorage.setItem('devtools', true);
+localStorage.setItem("devtools", true);
 ```
 
 Refresh the page. Click on the tan / beige rectangle:
