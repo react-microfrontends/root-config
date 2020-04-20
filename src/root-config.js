@@ -1,22 +1,21 @@
 import { registerApplication, start } from "single-spa";
-import * as isActive from "./activity-functions";
 
-registerApplication(
-  "@react-mf/navbar",
-  () => System.import("@react-mf/navbar"),
-  isActive.navbar
-);
+registerApplication({
+  name: "@react-mf/navbar",
+  app: () => System.import("@react-mf/navbar"),
+  activeWhen: "/",
+});
 
-registerApplication(
-  "@react-mf/people",
-  () => System.import("@react-mf/people"),
-  isActive.people
-);
+registerApplication({
+  name: "@react-mf/people",
+  app: () => System.import("@react-mf/people"),
+  activeWhen: "/people",
+});
 
-registerApplication(
-  "@react-mf/planets",
-  () => System.import("@react-mf/planets"),
-  isActive.planets
-);
+registerApplication({
+  name: "@react-mf/planets",
+  app: () => System.import("@react-mf/planets"),
+  activeWhen: "/planets",
+});
 
 start();
