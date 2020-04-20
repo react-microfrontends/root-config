@@ -41,7 +41,5 @@ module.exports = (env) => {
     externals: ["single-spa", /^@react-mf\/.+$/],
   };
 
-  console.log(result.plugins[0].constructor.name === "HtmlWebpackPlugin");
-
   return result;
 };
