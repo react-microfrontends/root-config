@@ -1,21 +1,16 @@
+import {
+  constructRoutes,
+  constructApplications,
+  constructLayoutEngine,
+} from "single-spa-layout";
 import { registerApplication, start } from "single-spa";
 
-registerApplication({
-  name: "@react-mf/navbar",
-  app: () => System.import("@react-mf/navbar"),
-  activeWhen: "/",
+const routes = constructRoutes(document.querySelector("single-spa-router"));
+const applications = constructApplications({
+  routes,
+  loadApp: ({ name }) => System.import(name),
 });
+const layoutEngine = constructLayoutEngine({ routes, applications });
 
-registerApplication({
-  name: "@react-mf/people",
-  app: () => System.import("@react-mf/people"),
-  activeWhen: "/people",
-});
-
-registerApplication({
-  name: "@react-mf/planets",
-  app: () => System.import("@react-mf/planets"),
-  activeWhen: "/planets",
-});
-
+applications.forEach(registerApplication);
 start();

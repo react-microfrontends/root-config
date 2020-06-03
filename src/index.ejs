@@ -22,6 +22,17 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
 </head>
 <body>
+  <single-spa-router>
+    <application name="@react-mf/navbar"></application>
+    <div class="main-content mt-16">
+      <route path="people">
+        <application name="@react-mf/people"></application>
+      </route>
+      <route path="planets">
+        <application name="@react-mf/planets"></application>
+      </route>
+    </div>
+  </single-spa-router>
   <script>
     System.import('@react-mf/root-config');
     System.import('@react-mf/styleguide');
