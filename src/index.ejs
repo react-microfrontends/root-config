@@ -22,7 +22,7 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
 </head>
 <body>
-  <single-spa-router>
+  <single-spa-router style="display: none;">
     <nav class="topnav">
       <application name="@react-mf/navbar"></application>
     </nav>
@@ -32,6 +32,11 @@
       </route>
       <route path="planets">
         <application name="@react-mf/planets"></application>
+      </route>
+      <route default>
+        <h1 class="flex flex-row justify-center p-16">
+          <p class="max-w-md">This example project shows independently built and deployed microfrontends that use React and single-spa. Each nav link above takes you to a different microfrontend.</p>
+        </h1>
       </route>
     </div>
   </single-spa-router>
