@@ -10,7 +10,17 @@ const applications = constructApplications({
   routes,
   loadApp: ({ name }) => System.import(name),
 });
-const layoutEngine = constructLayoutEngine({ routes, applications });
+// Delay starting the layout engine until the styleguide CSS is loaded
+const layoutEngine = constructLayoutEngine({
+  routes,
+  applications,
+  active: false,
+});
 
 applications.forEach(registerApplication);
-start();
+
+System.import("@react-mf/styleguide").then(() => {
+  // Activate the layout engine once the styleguide CSS is loaded
+  layoutEngine.activate();
+  start();
+});
