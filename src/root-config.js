@@ -1,21 +1,26 @@
+import {
+  constructRoutes,
+  constructApplications,
+  constructLayoutEngine,
+} from "single-spa-layout";
 import { registerApplication, start } from "single-spa";
 
-registerApplication({
-  name: "@react-mf/navbar",
-  app: () => System.import("@react-mf/navbar"),
-  activeWhen: "/",
+const routes = constructRoutes(document.querySelector("single-spa-router"));
+const applications = constructApplications({
+  routes,
+  loadApp: ({ name }) => System.import(name),
+});
+// Delay starting the layout engine until the styleguide CSS is loaded
+const layoutEngine = constructLayoutEngine({
+  routes,
+  applications,
+  active: false,
 });
 
-registerApplication({
-  name: "@react-mf/people",
-  app: () => System.import("@react-mf/people"),
-  activeWhen: "/people",
-});
+applications.forEach(registerApplication);
 
-registerApplication({
-  name: "@react-mf/planets",
-  app: () => System.import("@react-mf/planets"),
-  activeWhen: "/planets",
+System.import("@react-mf/styleguide").then(() => {
+  // Activate the layout engine once the styleguide CSS is loaded
+  layoutEngine.activate();
+  start();
 });
-
-start();

@@ -33,6 +33,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "single-spa": "^5.3.4"
+    "single-spa": "^5.3.4",
+    "single-spa-layout": "^1.0.0-beta.0"
   }
 }
