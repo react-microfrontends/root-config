@@ -5,7 +5,7 @@ import {
 } from "single-spa-layout";
 import { registerApplication, start } from "single-spa";
 
-const routes = constructRoutes(document.querySelector("single-spa-router"));
+const routes = constructRoutes(document.querySelector("#single-spa-layout"));
 const applications = constructApplications({
   routes,
   loadApp: ({ name }) => System.import(name),
