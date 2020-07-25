@@ -31,7 +31,7 @@ There are two ways to do local development. It is preferred to do one module at 
 ```sh
 cd root-config
 yarn install
-yarn start --https
+yarn start
 ```
 
 Go to https://localhost:9000/react-mf-root-config.js and verify that you are able to load the file without any SSL problems. To solve SSL problems, see [these instructions](https://improveandrepeat.com/2016/09/allowing-self-signed-certificates-on-localhost-with-chrome-and-firefox/).
