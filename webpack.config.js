@@ -27,6 +27,7 @@ module.exports = (env) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      https: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
