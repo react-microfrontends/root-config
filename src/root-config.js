@@ -5,7 +5,11 @@ import {
 } from "single-spa-layout";
 import { registerApplication, start } from "single-spa";
 
-const routes = constructRoutes(document.querySelector("#single-spa-layout"));
+const routes = constructRoutes(document.querySelector("#single-spa-layout"), {
+  loaders: {
+    topNav: "<h1>Loading topnav</h1>",
+  },
+});
 const applications = constructApplications({
   routes,
   loadApp: ({ name }) => System.import(name),
