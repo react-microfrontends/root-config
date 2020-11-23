@@ -7592,19 +7592,19 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-single-spa-layout@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/single-spa-layout/-/single-spa-layout-1.1.2.tgz#a95d49e3a14e3a1eee7ce48d7f9663c090efbe08"
-  integrity sha512-vKZVP3GOM+m1Scy0/LoD7j5nWKbsfVk0eu7BY2bSXZDV+Duk9fmGVHYRLOsWxtQCFtg44VhuCpUAgqwcr2hOuA==
+single-spa-layout@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/single-spa-layout/-/single-spa-layout-1.2.0.tgz#332d63a68ad8ddbe8a9d71ef0aee1d09326513f2"
+  integrity sha512-5jtogR4vls9xotFwFGlSKcPKH0LJ3OQ1ytKr34CE2JUL5xtbOzGa+nsuIjz+tMjpQvrI2krNosen1Y8YvfP/rg==
   dependencies:
     "@types/parse5" "^5.0.3"
     merge2 "^1.4.1"
     parse5 "^6.0.1"
 
-single-spa@^5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.8.0.tgz#edfa0ab04e1fafbc4e1a46a110e1a692a6f1af88"
-  integrity sha512-lLjcRuljtaprvN0LRBf8358awAjWU29II1y20yqmuablGYXw0RIpYDWDl+oLMS5ZzTAJk2t7L1NY47LFP5Qw/Q==
+single-spa@^5.8.2:
+  version "5.8.2"
+  resolved "https://registry.yarnpkg.com/single-spa/-/single-spa-5.8.2.tgz#e5b816612d61e6750dec79d42bc992c6f8c0db34"
+  integrity sha512-Rz9hY3/Trm6HdXiyhIUikIiEZBqUQCxov4jwecFGATbTRMZHoTDWf211PFrUs0s7QdIDThyMQmizamULkibSAA==
 
 sisteransi@^1.0.3:
   version "1.0.4"
