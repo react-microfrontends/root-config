@@ -5,3 +5,5 @@ node_modules
 LICENSE
 *.ejs
 yarn.lock
+coverage
+pnpm-lock.yaml
