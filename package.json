@@ -2,7 +2,7 @@
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
     "lint": "eslint src",
-    "test": "jest --passWithNotests",
+    "test": "jest --passWithNoTests",
     "format": "prettier --write .",
     "build": "webpack --mode=production",
     "analyze": "webpack --env analyze"
