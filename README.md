@@ -24,45 +24,13 @@ Whenever a pull request is merged to master, [CircleCI builds and deploys the pr
 
 Tutorial video: [youtube](https://www.youtube.com/watch?v=vjjcuIxqIzY&list=PLLUD8RtHvsAOhtHnyGx57EYXoaNsxGrTU&index=4) / [bilibili](https://www.bilibili.com/video/av83617789/)
 
-There are two ways to do local development. It is preferred to do one module at a time, whenever possible.
-
-### One module at a time
-
 ```sh
+git clone https://github.com/react-microfrontends/root-config.git
 cd root-config
 yarn install
 yarn start
+open http://localhost:8080
 ```
-
-Go to https://localhost:9000/react-mf-root-config.js and verify that you are able to load the file without any SSL problems. To solve SSL problems, see [these instructions](https://improveandrepeat.com/2016/09/allowing-self-signed-certificates-on-localhost-with-chrome-and-firefox/).
-
-Now, go to https://react.microfrontends.app. In the browser console, run the following:
-
-```js
-localStorage.setItem("devtools", true);
-```
-
-Refresh the page. Click on the tan / beige rectangle:
-
-![image](https://user-images.githubusercontent.com/5524384/75211359-e46b9280-5740-11ea-80bb-974846df414b.png)
-
-Set an [import map override](https://github.com/joeldenning/import-map-overrides/) to `9000`.
-
-![image](https://user-images.githubusercontent.com/5524384/75211553-7e333f80-5741-11ea-97d6-d3d86ffd1826.png)
-
-Refresh the page. Your local code for this module will now be running on https://react.microfrontends.app. You may make changes locally and refresh the page to see them.
-
-### All modules together
-
-Run the root-config project locally:
-
-```
-cd root-config
-yarn install
-yarn start
-```
-
-Now follow the steps above for "One module at a time" for each of the modules you wish to work on.
 
 ## Adapting for your organization
 
