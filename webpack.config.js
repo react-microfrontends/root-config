@@ -1,4 +1,4 @@
-const webpackMerge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -9,17 +9,11 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: "root-config",
     webpackConfigEnv,
     argv,
-  });
-
-  const merge = webpackMerge({
-    customizeArray: webpackMerge.unique(
-      "plugins",
-      ["HtmlWebpackPlugin"],
-      (plugin) => plugin.constructor && plugin.constructor.name
-    ),
+    disableHtmlGeneration: true,
   });
 
   return merge(
+    defaultConfig,
     {
       plugins: [
         new HtmlWebpackPlugin({
@@ -32,14 +26,8 @@ module.exports = (webpackConfigEnv, argv) => {
         }),
       ],
     },
-    defaultConfig,
     {
       // modify the webpack config however you'd like to by adding to this object
-      devServer: {
-        client: {
-          port: 9000,
-        },
-      },
     }
   );
 };
