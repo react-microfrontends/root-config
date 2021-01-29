@@ -31,6 +31,7 @@
         <route path="planets">
           <application name="@react-mf/planets"></application>
         </route>
+        <redirect from="/earth" to="/planets"></redirect>
         <route default>
           <h1 class="flex flex-row justify-center p-16">
             <p class="max-w-md">This example project shows independently built and deployed microfrontends that use React and single-spa. Each nav link above takes you to a different microfrontend.</p>
