@@ -29,7 +29,7 @@ git clone https://github.com/react-microfrontends/root-config.git
 cd root-config
 yarn install
 yarn start
-open http://localhost:8080
+open http://localhost:9000
 ```
 
 ## Adapting for your organization
