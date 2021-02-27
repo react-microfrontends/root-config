@@ -14,7 +14,7 @@ This repository is a javascript project that creates a javascript bundle that is
 
 This project uses [React](https://reactjs.org) and was created with the [create-single-spa](https://single-spa.js.org/docs/create-single-spa) CLI. It uses webpack and babel.
 
-Whenever a pull request is merged to master, [CircleCI builds and deploys the project](https://circleci.com/gh/react-microfrontends/root-config). The ["workflows" view](https://circleci.com/gh/react-microfrontends/workflows) (pictured below) can be seen if you are logged into CircleCI. Deployments for this in-browser module are completely independent of deployments for any other module.
+Whenever a pull request is merged to main, [CircleCI builds and deploys the project](https://circleci.com/gh/react-microfrontends/root-config). The ["workflows" view](https://circleci.com/gh/react-microfrontends/workflows) (pictured below) can be seen if you are logged into CircleCI. Deployments for this in-browser module are completely independent of deployments for any other module.
 
 ![image](https://user-images.githubusercontent.com/5524384/75210801-5ba02700-573f-11ea-8064-46af165cba0a.png)
 
