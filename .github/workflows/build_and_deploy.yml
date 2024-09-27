@@ -1,0 +1,77 @@
+name: Build, Test, Release
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: "*"
+
+jobs:
+  build_test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Install Pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Test
+        run: |
+          pnpm run lint
+          pnpm run check-format
+          pnpm run test
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Store artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  release:
+    name: Release
+    needs: build_test
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    permissions:
+      contents: "read"
+      id-token: "write"
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+
+      - name: Authenticate with GCP
+        uses: "google-github-actions/auth@v2"
+        with:
+          project_id: neural-passkey-248222
+          workload_identity_provider: "projects/654158993889/locations/global/workloadIdentityPools/github/providers/my-repo"
+          service_account: github-workload-identity-feder@neural-passkey-248222.iam.gserviceaccount.com
+
+      - name: Upload Static Files to CDN
+        uses: "google-github-actions/upload-cloud-storage@v2"
+        with:
+          path: .
+          destination: react.microfrontends.app/${{ github.event.repository.name }}/${{ github.run_id }}
+
+      - name: Update Import Map
+        run: curl -u ${{ secrets.DEPLOYER_USERNAME }}:${{ secrets.DEPLOYER_PASSWORD }} -d '{ "service":"@react-mf/${{ github.event.repository.name }}","url":"https://react.microfrontends.app/${{ github.event.repository.name }}/${{ github.run_id }}/react-mf-${{ github.event.repository.name }}.js" }' -X PATCH ${{ secrets.DEPLOYER_HOST }}/services\?env=react -H "Accept:application/json" -H "Content-Type:application/json" --fail --insecure -i
+
+      - name: Update Index.html
+        uses: "google-github-actions/upload-cloud-storage@v2"
+        with:
+          path: ./index.html
+          destination: react.microfrontends.app/index.html

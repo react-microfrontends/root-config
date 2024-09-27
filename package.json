@@ -4,6 +4,7 @@
     "lint": "eslint src",
     "test": "jest --passWithNoTests",
     "format": "prettier --write .",
+    "check-format": "prettier --check .",
     "build": "webpack --mode=production",
     "analyze": "webpack --env analyze",
     "prepare": "husky install"
@@ -33,5 +34,6 @@
   "dependencies": {
     "single-spa": "^5.9.3",
     "single-spa-layout": "^1.6.0"
-  }
+  },
+  "packageManager": "pnpm@9.11.0"
 }
