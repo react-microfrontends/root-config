@@ -18,6 +18,9 @@ importers:
       '@babel/core':
         specifier: ^7.15.0
         version: 7.25.2
+      '@babel/eslint-parser':
+        specifier: ^7.25.1
+        version: 7.25.1(@babel/core@7.25.2)(eslint@7.32.0)
       '@babel/preset-env':
         specifier: ^7.15.0
         version: 7.25.4(@babel/core@7.25.2)
@@ -67,8 +70,8 @@ importers:
         specifier: ^4.8.0
         version: 4.10.0(webpack-dev-server@4.15.2)(webpack@5.94.0)
       webpack-config-single-spa:
-        specifier: ^5.0.0
-        version: 5.3.1(@babel/core@7.25.2)(webpack@5.94.0(webpack-cli@4.10.0))
+        specifier: ^6.0.1
+        version: 6.0.1(@babel/core@7.25.2)(webpack@5.94.0(webpack-cli@4.10.0))
       webpack-dev-server:
         specifier: ^4.0.0
         version: 4.15.2(webpack-cli@4.10.0)(webpack@5.94.0)
@@ -96,6 +99,13 @@ packages:
   '@babel/core@7.25.2':
     resolution: {integrity: sha512-BBt3opiCOxUr9euZ5/ro/Xv8/V7yJ5bjYMqG/C1YAo8MIKAnumZalCN+msbci3Pigy4lIQfPUpfMM27HMGaYEA==}
     engines: {node: '>=6.9.0'}
+
+  '@babel/eslint-parser@7.25.1':
+    resolution: {integrity: sha512-Y956ghgTT4j7rKesabkh5WeqgSFZVFwaPR0IWFm7KFHFmmJ4afbG49SmfW4S+GyRPx0Dy5jxEWA5t0rpxfElWg==}
+    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
+    peerDependencies:
+      '@babel/core': ^7.11.0
+      eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
 
   '@babel/generator@7.25.6':
     resolution: {integrity: sha512-VPC82gr1seXOpkjAAKoLhP50vx4vGNlF4msF64dSFq1P8RfB+QAuJWGHPXXPc8QyfVWwwB/TNNU4+ayZmHNbZw==}
@@ -773,6 +783,9 @@ packages:
 
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
+
+  '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
+    resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
 
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
@@ -2012,6 +2025,9 @@ packages:
     resolution: {integrity: sha512-2SPlun1JUPWoM6t3F0dw0FkCF/jWY8kttcY4f599GLTSjh2OCuuhdTkJQsEcZzBqbXZGKMK2OqW1oZsjtf/gQA==}
     engines: {node: '>=8'}
     hasBin: true
+
+  import-map-externals-webpack-plugin@1.0.0:
+    resolution: {integrity: sha512-zBI1VliWjO4DY0KtL5pofzuSeOcLJw8oGzuRBuo8qRBIaV2N2v0a8jPSsO17IvZiemhK2VLULfzsmhe6QK2LZg==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -3339,8 +3355,8 @@ packages:
       webpack-dev-server:
         optional: true
 
-  webpack-config-single-spa@5.3.1:
-    resolution: {integrity: sha512-RYovsr9iOIZmuz3+qXEKv8KTFyKTd4GTK3xYuBMpWaw1Ud/k1IfKOfB2IQxy6Ff2Ue/TfxJpavVvybdHU/qAvA==}
+  webpack-config-single-spa@6.0.1:
+    resolution: {integrity: sha512-j3fgzO88IW3bygQxSmaJqbWgI1xX1AivdqIFzmwV6pOSQuIYY+sHn9A4PV1QvGwYRqhSUy0B2lVBWq8MiRYESQ==}
 
   webpack-dev-middleware@5.3.4:
     resolution: {integrity: sha512-BVdTqhhs+0IfoeAf7EoH5WE+exCmqGerHfDM0IL096Px60Tq2Mn9MAbnaGUe6HiMa41KMCYF19gyzZmBcq/o4Q==}
@@ -3512,6 +3528,14 @@ snapshots:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
+
+  '@babel/eslint-parser@7.25.1(@babel/core@7.25.2)(eslint@7.32.0)':
+    dependencies:
+      '@babel/core': 7.25.2
+      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
+      eslint: 7.32.0
+      eslint-visitor-keys: 2.1.0
+      semver: 6.3.1
 
   '@babel/generator@7.25.6':
     dependencies:
@@ -4466,6 +4490,10 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@leichtgewicht/ip-codec@2.0.5': {}
+
+  '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
+    dependencies:
+      eslint-scope: 5.1.1
 
   '@polka/url@1.0.0-next.28': {}
 
@@ -5829,6 +5857,8 @@ snapshots:
     dependencies:
       pkg-dir: 4.2.0
       resolve-cwd: 3.0.0
+
+  import-map-externals-webpack-plugin@1.0.0: {}
 
   imurmurhash@0.1.4: {}
 
@@ -7340,11 +7370,12 @@ snapshots:
     optionalDependencies:
       webpack-dev-server: 4.15.2(webpack-cli@4.10.0)(webpack@5.94.0)
 
-  webpack-config-single-spa@5.3.1(@babel/core@7.25.2)(webpack@5.94.0(webpack-cli@4.10.0)):
+  webpack-config-single-spa@6.0.1(@babel/core@7.25.2)(webpack@5.94.0(webpack-cli@4.10.0)):
     dependencies:
       babel-loader: 8.4.1(@babel/core@7.25.2)(webpack@5.94.0(webpack-cli@4.10.0))
       css-loader: 6.11.0(webpack@5.94.0(webpack-cli@4.10.0))
       html-webpack-plugin: 5.6.0(webpack@5.94.0(webpack-cli@4.10.0))
+      import-map-externals-webpack-plugin: 1.0.0
       standalone-single-spa-webpack-plugin: 4.0.0(html-webpack-plugin@5.6.0(webpack@5.94.0(webpack-cli@4.10.0)))(webpack@5.94.0(webpack-cli@4.10.0))
       style-loader: 3.3.4(webpack@5.94.0(webpack-cli@4.10.0))
       systemjs-webpack-interop: 2.3.7(webpack@5.94.0(webpack-cli@4.10.0))
