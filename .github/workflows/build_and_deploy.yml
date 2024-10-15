@@ -68,7 +68,15 @@ jobs:
           destination: react.microfrontends.app/${{ github.event.repository.name }}/${{ github.run_id }}
 
       - name: Update Import Map
-        run: curl -u ${{ secrets.DEPLOYER_USERNAME }}:${{ secrets.DEPLOYER_PASSWORD }} -d '{ "service":"@react-mf/${{ github.event.repository.name }}","url":"https://react.microfrontends.app/${{ github.event.repository.name }}/${{ github.run_id }}/react-mf-${{ github.event.repository.name }}.js" }' -X PATCH ${{ secrets.DEPLOYER_HOST }}/services\?env=react -H "Accept:application/json" -H "Content-Type:application/json" --fail --insecure -i
+        uses: single-spa/action-deploy-to-import-map-deployer@v1
+        with:
+          host: ${{ secrets.DEPLOYER_HOST }}
+          username: ${{ secrets.DEPLOYER_USERNAME }}
+          password: ${{ secrets.DEPLOYER_PASSWORD }}
+          environment-name: react
+          service-name: "@react-mf/${{ github.event.repository.name }}"
+          service-url: "https://react.microfrontends.app/${{ github.event.repository.name }}/${{ github.run_id }}/react-mf-${{ github.event.repository.name }}.js"
+          service-integrity-file-path: react-mf-${{ github.event.repository.name }}.js
 
       - name: Update Index.html
         uses: "google-github-actions/upload-cloud-storage@v2"
