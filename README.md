@@ -25,8 +25,8 @@ Tutorial video: [youtube](https://www.youtube.com/watch?v=vjjcuIxqIzY&list=PLLUD
 ```sh
 git clone https://github.com/react-microfrontends/root-config.git
 cd root-config
-yarn install
-yarn start
+pnpm install
+pnpm start
 open http://localhost:9000
 ```
 
