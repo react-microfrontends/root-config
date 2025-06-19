@@ -29,7 +29,7 @@
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-config-single-spa": "^7.0.0",
-    "webpack-dev-server": "^4.0.0",
+    "webpack-dev-server": "^5.2.1",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
